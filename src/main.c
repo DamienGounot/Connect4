@@ -19,7 +19,45 @@ int win; // flag de victoire
 
 int main(int argc, char** argv){
 
-    
+    if(argc < 4 || argc > 5)
+    {
+        printf("[-] Error : usage is : ./COMP <width> <hight> <number of players>\n");
+        printf("[-] Error : usage is : ./COMP <width> <hight> <number of players> <port>\n");
+        return EXIT_FAILURE;
+    }
+    else
+    {
+        WIDTH = atoi(argv[1]);
+        HIGH = atoi(argv[2]);
+        NBPLAYER = atoi(argv[3]);
+        if(argc == 5)
+        {   
+            if (atoi(argv[4])==0)
+            {
+                printf("[-] Error with port number\n");
+            }
+            
+            PORT = atoi(argv[4]);
+        //    printf("Port : %d",PORT);
+        }
+
+        if(NBPLAYER<MINPLAYER || NBPLAYER>MAXPLAYER)
+        {
+            printf("[-] Error : <number of player> should be between %d and %d",MINPLAYER,MAXPLAYER);
+           return EXIT_FAILURE;
+        }
+
+        if(WIDTH==0 || HIGH==0)
+        {
+            printf("[-] Error : <width> and <hight>");
+           return EXIT_FAILURE;
+        }
+
+       // printf("WIDTH : %d",WIDTH);
+       // printf("HIGH : %d",HIGH);
+       // printf("NBPLAYER : %d",NBPLAYER);
+        
+    }
 
 
 
