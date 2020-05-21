@@ -41,13 +41,13 @@ Prend en paramètre le nombre de joueurs , et retourne un tableau comportant les
 
 Log dans un fichier txt le contenu à Logger (passé en paramètre)
 
-* **Void initArray(char ** Array)**
+* **Void initArray(char ** Array, int WIDTH, int HIGH)**
 
 Initialisation de la grille de jeu a vide
 
-* **Void displayArray(char ** Array)**
+* **Void displayArray(char ** Array, int WIDTH, int HIGH)**
 
-Affichage de la grille de jeu
+Affiche la grille de jeu sur la sortie standard
 
 * **int nextPlayer(int actualPlayer)**
 
@@ -62,9 +62,6 @@ Permet au joueur en cours, de choisir la colonne où poser son pion, on s'assure
 Fait descendre le pion du joueur (passé en paramètre) dans la colonne (passée en paramètre), en s'assurant que le pion puisse descendre (cad tant que la hauteur du dessous n'est pas pleine et que l'on sorte pas du plateau de jeu)
 On décrémente également le nombre de slots disponibles sur le plateau. Retourne la ligne sur laquelle le pion s'est arrété.
 
-* **Void displayArray(char ** Array)**
-
-Affiche la grille de jeu sur la sortie standard
 
 * **Int Checkp4(int line,int column,int dx,int dy,char ** Array)**
 
@@ -96,25 +93,5 @@ Retourne le nombre de voisins gauche consécutifs de même pattern que le point 
 Retourne le nombre de voisins droite consécutifs de même pattern que le point de coordonnées passées en paramètre
 
 ## Vue Globale
-
-* ** Structure **
-
-├── header
-│   ├── count.h
-│   ├── display.h
-│   ├── log.h
-│   ├── search.h
-│   └── tocken.h
-├── makefile
-├── obj
-├── README.md
-└── src
-    ├── count.c
-    ├── display.c
-    ├── log.c
-    ├── main.c
-    ├── search.c
-    └── token.c
-
  
 ![alt text](https://githubimage.000webhostapp.com/connect4/overview.png "overview")
