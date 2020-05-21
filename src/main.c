@@ -1,21 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int HIGH; // Hauteur du plateau de jeu
-int WIDTH; // Largeur du plateau de jeu
-int PORT; // Port du serveur
-const int MINPLAYER = 2; // Nombre de joueur minimum pour lancer une partie
-const int MAXPLAYER = 4;// Nombre de joueur maximum pour lancer une partie
-int NBPLAYER; // Nombre de joueur dans la partie
-//char Array[WIDTH][HIGH]; // Grille de jeu
-//char Players[NBPLAYER]; // Tableau contenant les pions de chaque joueur
-int line; // coordonée du dernier jeton posé
-int column; // coordonée du dernier jeton posé
-int tokenLeft; // nombre de cases vides restantes (pour draw)
-int mainMenuChoice; // choix du menu principal
-int actualPlayer; // référence le joueur actuel
-int quit; // flag de ragequit
-int win; // flag de victoire
+#include "../header/main.h"
 
 int main(int argc, char** argv){
 
@@ -38,7 +23,6 @@ int main(int argc, char** argv){
             }
             
             PORT = atoi(argv[4]);
-        //    printf("Port : %d",PORT);
         }
 
         if(NBPLAYER<MINPLAYER || NBPLAYER>MAXPLAYER)
@@ -53,13 +37,15 @@ int main(int argc, char** argv){
            return EXIT_FAILURE;
         }
 
-       // printf("WIDTH : %d",WIDTH);
-       // printf("HIGH : %d",HIGH);
-       // printf("NBPLAYER : %d",NBPLAYER);
-        
+       Array = (char**)malloc( sizeof(char*)*HIGH); // Allocation du tableau en fonction de la largeur et hauteur saisie en argv
+
+        for(int i = 0; i < HIGH; i++)// Iterate over correct dimension
+        {
+        Array[i]= (char*)malloc(WIDTH);
+        }
+
+
+
     }
-
-
-
     return EXIT_SUCCESS;
 }
