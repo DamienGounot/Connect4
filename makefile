@@ -1,33 +1,29 @@
-PROJET :  COMP LAUNCH NET
+PROJET :  COMP  NETTOYAGE
 
-count.o : count.h
-	gcc -c count.c -Wall
+count.o : ./header/count.h
+	gcc -c ./src/count.c -Wall -o ./obj/count.o
 
-display.o : display.h
-	gcc -c display.c -Wall
+display.o : ./header/display.h
+	gcc -c ./src/display.c -Wall -o ./obj/display.o
 
-log.o : log.h
-	gcc -c log.c -Wall
+log.o : ./header/log.h
+	gcc -c ./src/log.c -Wall -o ./obj/log.o
 
-main.o : count.h display.h log.h main.h search.h token.h
-	gcc -c main.c -Wall
+search.o : ./header/search.h
+	gcc -c ./src/search.c -Wall -o ./obj/search.o
 
-search.o : search.h
-	gcc -c search.c -Wall
-
-token.o : token.h
-	gcc -c token.c -Wall
+token.o : ./header/token.h
+	gcc -c ./src/token.c -Wall -o ./obj/token.o
 					
-
+main.o : ./header/count.h ./header/display.h ./header/log.h ./header/search.h ./header/token.h
+	gcc -c ./src/main.c -Wall -o ./obj/main.o
 
 COMP : count.o display.o log.o main.o search.o token.o
-	cd ./obj
-	gcc -o COMP count.o display.o log.o main.o search.o token.o -Wall
+	gcc -o COMP ./obj/count.o ./obj/display.o ./obj/log.o ./obj/main.o ./obj/search.o ./obj/token.o -Wall
+
+NETTOYAGE : 
+	rm ./obj/*.o
 
 LAUNCH :
-	-./COMP
-
-NET : 
-	rm *.o COMP
-	clear
+	-./COMP 10 10 4
 
