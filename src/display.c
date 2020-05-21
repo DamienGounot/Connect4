@@ -1,9 +1,13 @@
-#include "../header/display.h"
 #include "../header/main.h"
+#include "../header/display.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-void initArray(char **Array)
+extern char** Array;
+extern int WIDTH;
+extern int HIGH;
+
+void initArray(char** Array, int WIDTH, int HIGH)
  {
      for(int i=0; i<WIDTH;i++){
 
@@ -13,7 +17,7 @@ void initArray(char **Array)
         }
     }
  }
-void displayArray(char **Array)
+void displayArray(char** Array, int WIDTH, int HIGH)
 {
     for(int m =0; m<WIDTH; m++){
         printf(" %d",m);
