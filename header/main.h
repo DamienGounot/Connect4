@@ -18,4 +18,9 @@ int actualPlayer; // référence le joueur actuel
 int quit; // flag de ragequit
 int win; // flag de victoire
 
+
+void allocateArray();
+void initParameters();
+
+
 #endif
