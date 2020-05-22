@@ -18,8 +18,11 @@ token.o :
 main.o : 
 	gcc -c ./src/main.c -Wall -o ./obj/main.o
 
-COMP : count.o display.o log.o search.o token.o main.o
-	gcc -o COMP ./obj/count.o ./obj/display.o ./obj/log.o ./obj/search.o ./obj/token.o ./obj/main.o -Wall
+init.o :
+	gcc -c ./src/init.c -Wall -o ./obj/init.o
+
+COMP : count.o display.o log.o search.o token.o main.o init.o
+	gcc -o COMP ./obj/count.o ./obj/display.o ./obj/log.o ./obj/search.o ./obj/token.o ./obj/main.o ./obj/init.o
 
 NETTOYAGE : 
 	rm ./obj/*.o
