@@ -2,7 +2,17 @@
 #include <stdlib.h>
 
 
-void allocateArray(int HIGH,int WIDTH, char** Array)
+extern char** Array;
+extern int HIGH;
+extern int WIDTH;
+extern int NBPLAYER;
+extern int PORT;
+extern int MINPLAYER;
+extern int MAXPLAYER;
+extern int NBARGUMENTS;
+extern char** ARGUMENTS;
+
+void allocateArray()
 {
     Array = (char**)malloc( sizeof(char*)*HIGH); // Allocation du tableau en fonction de la largeur et hauteur saisie en argv
 
@@ -19,9 +29,9 @@ void allocateArray(int HIGH,int WIDTH, char** Array)
     
 }
 
-void initParameters(int argc, char** argv,int HIGH,int WIDTH, int NBPLAYER, int PORT, int MINPLAYER, int MAXPLAYER)
+void initParameters()
 {
-        if(argc < 4 || argc > 5)
+        if(NBARGUMENTS < 4 || NBARGUMENTS > 5)
     {
         printf("[-] Error : usage is : ./COMP <width> <hight> <number of players>\n");
         printf("[-] Error : usage is : ./COMP <width> <hight> <number of players> <port>\n");
@@ -29,18 +39,18 @@ void initParameters(int argc, char** argv,int HIGH,int WIDTH, int NBPLAYER, int 
     }
     else
     {
-        WIDTH = atoi(argv[1]);
-        HIGH = atoi(argv[2]);
-        NBPLAYER = atoi(argv[3]);
-        if(argc == 5)
+        WIDTH = atoi(ARGUMENTS[1]);
+        HIGH = atoi(ARGUMENTS[2]);
+        NBPLAYER = atoi(ARGUMENTS[3]);
+        if(NBARGUMENTS == 5)
         {   
-            if (atoi(argv[4])==0)
+            if (atoi(ARGUMENTS[4])==0)
             {
                 printf("[-] Error with port number\n");
                 exit(EXIT_FAILURE);
             }
             
-            PORT = atoi(argv[4]);
+            PORT = atoi(ARGUMENTS[4]);
         }
 
         if(NBPLAYER<MINPLAYER || NBPLAYER>MAXPLAYER)
@@ -55,4 +65,5 @@ void initParameters(int argc, char** argv,int HIGH,int WIDTH, int NBPLAYER, int 
            exit(EXIT_FAILURE);
         }
     }
+
 }

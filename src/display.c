@@ -1,5 +1,3 @@
-#include "../header/main.h"
-#include "../header/display.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,7 +5,7 @@ extern char** Array;
 extern int WIDTH;
 extern int HIGH;
 
-void initArray(char** Array, int WIDTH, int HIGH)
+void initArray()
  {
      for(int i=0; i<WIDTH;i++){
 
@@ -17,14 +15,14 @@ void initArray(char** Array, int WIDTH, int HIGH)
         }
     }
  }
-void displayArray(char** Array, int WIDTH, int HIGH)
+void displayArray()
 {
     for(int m =0; m<WIDTH; m++){
         printf(" %d",m);
     }
     printf(" \n");
 
-     for(int r =0; r<13; r++){
+     for(int r =0; r<2*WIDTH+1; r++){
         printf("-");
         
     }

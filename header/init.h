@@ -4,5 +4,4 @@
 void allocateArray();
 void initParameters();
 
-
 #endif
