@@ -27,9 +27,8 @@ int main(int argc, char** argv){
     ARGUMENTS = argv;
 
     initParameters();
-    printf("[DEBUG] : Width : %d, Height : %d, NBPLAYER: %d, MAXPLAYER : %d, MINPLAYER : %d \n",WIDTH,HIGH,NBPLAYER,MAXPLAYER,MINPLAYER);
+    printf("[DEBUG] [main] : WIDTH : %d, HIGH : %d, NBPLAYER: %d, MAXPLAYER : %d, MINPLAYER : %d \n",WIDTH,HIGH,NBPLAYER,MAXPLAYER,MINPLAYER);
     allocateArray();
-    printf("[DEBUG] HIGH : %d, WIDTH : %d \n", HIGH, WIDTH);
     displayMainMenu();
     initArray();
     displayArray();

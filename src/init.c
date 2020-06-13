@@ -14,11 +14,11 @@ extern char** ARGUMENTS;
 
 void allocateArray()
 {
-    Array = (char**)malloc( sizeof(char*)*HIGH); // Allocation du tableau en fonction de la largeur et hauteur saisie en argv
+    Array = (char**)malloc(sizeof(char*)*HIGH); // Allocation du tableau en fonction de la largeur et hauteur saisie en argv
 
       for(int i = 0; i < HIGH; i++)// Iterate over correct dimension
         {
-        Array[i]= (char*)malloc(WIDTH);
+        Array[i]= (char*)malloc(sizeof(char)*WIDTH);
         } 
 
         if(Array == NULL)
