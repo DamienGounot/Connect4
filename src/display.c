@@ -1,5 +1,3 @@
-#include "../header/main.h"
-#include "../header/display.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,32 +5,36 @@ extern char** Array;
 extern int WIDTH;
 extern int HIGH;
 
-void initArray(char** Array, int WIDTH, int HIGH)
+void initArray()
  {
+        printf("[DEBUG] [initArray] WIDTH : %d; HIGH: %d\n",WIDTH,HIGH);
+
      for(int i=0; i<WIDTH;i++){
 
         for(int j =0; j<HIGH;j++){
 
-           Array[i][j] = ' ';
+           Array[j][i] = ' ';
         }
     }
+
+    printf("[DEBUG] [initArray] CASES: %d\n",WIDTH*HIGH);
  }
-void displayArray(char** Array, int WIDTH, int HIGH)
+void displayArray()
 {
     for(int m =0; m<WIDTH; m++){
-        printf(" %d",m);
+        printf("%d ",m);
     }
     printf(" \n");
 
-     for(int r =0; r<13; r++){
+     for(int r =0; r<2*WIDTH+1; r++){
         printf("-");
         
     }
     printf("\n");
 
-    for(int i=0; i<WIDTH;i++){
+    for(int i=0; i<HIGH;i++){
 
-        for(int j =0; j<HIGH;j++){
+        for(int j =0; j<WIDTH;j++){
 
            printf("|%c", Array[i][j]);
         }

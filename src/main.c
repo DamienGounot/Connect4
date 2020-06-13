@@ -19,13 +19,19 @@ int mainMenuChoice; // choix du menu principal
 int actualPlayer; // référence le joueur actuel
 int quit; // flag de ragequit
 int win; // flag de victoire
-
+int NBARGUMENTS;
+char** ARGUMENTS;
 
 int main(int argc, char** argv){
+    NBARGUMENTS = argc;
+    ARGUMENTS = argv;
 
-    initParameters(argc,argv, HIGH, WIDTH, NBPLAYER, PORT, MINPLAYER, MAXPLAYER); // Vérifie et initialise les paramètres
-    allocateArray(HIGH,WIDTH,Array); // Alloue la grille
-
+    initParameters();
+    printf("[DEBUG] [main] : WIDTH : %d, HIGH : %d, NBPLAYER: %d, MAXPLAYER : %d, MINPLAYER : %d \n",WIDTH,HIGH,NBPLAYER,MAXPLAYER,MINPLAYER);
+    allocateArray();
+    displayMainMenu();
+    initArray();
+    displayArray();
 
     free(Array); // Libère mémoire de la grille
     return EXIT_SUCCESS;
