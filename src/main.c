@@ -3,6 +3,7 @@
 #include "../header/init.h"
 #include "../header/display.h"
 #include "../header/log.h"
+#include "../header/token.h"
 
 int HIGH; // Hauteur du plateau de jeu
 int WIDTH; // Largeur du plateau de jeu
@@ -32,6 +33,9 @@ int main(int argc, char** argv){
     displayMainMenu();
     initArray();
     displayArray();
+    allocatePlayers();
+    choiceToken();
+    printf("[DEBUG] [Players] : Player 1 : %c, Player 2 : %c, Player 3: %c, Player 4 : %c\n",Players[0],Players[1],Players[2],Players[3]);
 
     free(Array); // Libère mémoire de la grille
     return EXIT_SUCCESS;
