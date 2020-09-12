@@ -11,7 +11,6 @@ extern int MINPLAYER;
 extern int MAXPLAYER;
 extern int NBARGUMENTS;
 extern char** ARGUMENTS;
-extern char* Players; 
 
 void allocateArray()
 {
@@ -67,8 +66,4 @@ void initParameters()
         }
     }
 
-}
-
-void allocatePlayers(){
-Players = (char*)malloc(sizeof(char)*NBPLAYER);
 }

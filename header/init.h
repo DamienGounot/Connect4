@@ -3,5 +3,5 @@
 
 void allocateArray();
 void initParameters();
-void allocatePlayers();
+
 #endif
