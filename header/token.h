@@ -2,7 +2,7 @@
 #define _TOKEN_H_
 
 char** choiceToken();
-int placeToken();
+void placeToken();
 int Gravity();
 int isTokenAvailable();
 int isColumAvailable();

@@ -5,6 +5,7 @@ extern int NBPLAYER; // Nombre de joueur dans la partie
 extern char* Players; // Tableau contenant les pions de chaque joueur
 extern int actualPlayer; // référence le joueur actuel
 extern int column; // coordonée du dernier jeton posé
+extern int line; // coordonée du dernier jeton posé
 extern int HIGH; // Hauteur du plateau de jeu
 extern int WIDTH; // Largeur du plateau de jeu
 extern char** Array; // Grille de jeu
@@ -35,7 +36,7 @@ void choiceToken()
         printf("Player #%d has choosen token %c\n",actualPlayer,token);
         Players[actualPlayer-1] = token;
         actualPlayer++;
-    }while(actualPlayer<5);
+    }while(actualPlayer<NBPLAYER+1);
 }
 
 int isColumAvailable(int column)
@@ -56,8 +57,10 @@ void placeToken()
     {
         printf("Player #%d : Choose your column\n",actualPlayer+1);
         scanf("%d",&column);
-        printf("[DEBUG] [placeToken] Player #%d : Choosed Column %d! \n",actualPlayer+1,column);
-    } while ((column<0 || column > WIDTH) || (isColumAvailable(column))); // tant que la colonne n'existe pas 
+    } while ((column<0 || column > WIDTH) || (!isColumAvailable(column))); // tant que la colonne n'existe pas, ou est pleine
+
+    line = gravity(Array,column,actualPlayer);
+    printf("[DEBUG] [placeToken] Player #%d : Choosed Column %d! \n",actualPlayer+1,column);
     
 }
         
