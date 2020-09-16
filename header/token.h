@@ -5,5 +5,6 @@ char** choiceToken();
 int placeToken();
 int Gravity();
 int isTokenAvailable();
+int isColumAvailable();
 
 #endif

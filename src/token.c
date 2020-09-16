@@ -3,6 +3,11 @@
 
 extern int NBPLAYER; // Nombre de joueur dans la partie
 extern char* Players; // Tableau contenant les pions de chaque joueur
+extern int actualPlayer; // référence le joueur actuel
+extern int column; // coordonée du dernier jeton posé
+extern int HIGH; // Hauteur du plateau de jeu
+extern int WIDTH; // Largeur du plateau de jeu
+extern char** Array; // Grille de jeu
 
 int isTokenAvailable(char token){
     for(int i=0;i<NBPLAYER;i++)
@@ -20,8 +25,10 @@ void choiceToken()
 {
     int actualPlayer = 1;
     char token;
-    do{
-        do{
+    do
+    {
+        do
+        {
             printf("Player #%d : Choose your token\n",actualPlayer);
             scanf("%c", &token);
         }while((token <'a' || token>'z') || (!isTokenAvailable(token)));// Tant que token n'est pas une minuscule ou n'est pas déjà utilisé
@@ -29,5 +36,28 @@ void choiceToken()
         Players[actualPlayer-1] = token;
         actualPlayer++;
     }while(actualPlayer<5);
+}
+
+int isColumAvailable(int column)
+{
+        if(Array[0][column] == ' ') // si la première case de la colonne est disponible
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+}
+
+void placeToken()
+{
+    do
+    {
+        printf("Player #%d : Choose your column\n",actualPlayer+1);
+        scanf("%d",&column);
+        printf("[DEBUG] [placeToken] Player #%d : Choosed Column %d! \n",actualPlayer+1,column);
+    } while ((column<0 || column > WIDTH) || (isColumAvailable(column))); // tant que la colonne n'existe pas 
+    
 }
         
