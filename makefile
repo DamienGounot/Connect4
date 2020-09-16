@@ -20,9 +20,12 @@ main.o :
 
 init.o :
 	gcc -c ./src/init.c -Wall -o ./obj/init.o
+	
+player.o :
+	gcc -c ./src/player.c -Wall -o ./obj/player.o
 
-COMP : count.o display.o log.o search.o token.o main.o init.o
-	gcc -o COMP ./obj/count.o ./obj/display.o ./obj/log.o ./obj/search.o ./obj/token.o ./obj/main.o ./obj/init.o
+COMP : count.o display.o log.o search.o token.o main.o init.o player.o
+	gcc -o COMP ./obj/count.o ./obj/display.o ./obj/log.o ./obj/search.o ./obj/token.o ./obj/main.o ./obj/init.o ./obj/player.o
 
 NETTOYAGE : 
 	rm ./obj/*.o
