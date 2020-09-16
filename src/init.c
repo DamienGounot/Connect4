@@ -66,7 +66,7 @@ void initParameters()
            exit(EXIT_FAILURE);
         }
     }
-
+printf("[DEBUG] [main] : WIDTH : %d, HIGH : %d, NBPLAYER: %d, MAXPLAYER : %d, MINPLAYER : %d \n",WIDTH,HIGH,NBPLAYER,MAXPLAYER,MINPLAYER);
 }
 
 void allocatePlayers(){

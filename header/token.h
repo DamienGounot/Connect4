@@ -2,8 +2,10 @@
 #define _TOKEN_H_
 
 char** choiceToken();
-int placeToken();
-int Gravity();
+void placeToken();
+void gravity();
 int isTokenAvailable();
+int isColumAvailable();
+void leftToken();
 
 #endif
