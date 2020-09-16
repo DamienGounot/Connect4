@@ -40,7 +40,8 @@ int main(int argc, char** argv){
     {
         nextPlayer();
         placeToken();
-        /* code */
+        gravity();
+        leftToken();
     } while (!win || !quit);
     
     free(Array); // Libère mémoire de la grille

@@ -3,8 +3,9 @@
 
 char** choiceToken();
 void placeToken();
-int Gravity();
+void gravity();
 int isTokenAvailable();
 int isColumAvailable();
+void leftToken();
 
 #endif

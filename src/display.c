@@ -4,6 +4,7 @@
 extern char** Array;
 extern int WIDTH;
 extern int HIGH;
+extern int tokenLeft; // nombre de cases vides restantes (pour draw)
 
 void initArray()
  {
@@ -16,7 +17,7 @@ void initArray()
            Array[j][i] = ' ';
         }
     }
-
+    tokenLeft = WIDTH*HIGH;
     printf("[DEBUG] [initArray] CASES: %d\n",WIDTH*HIGH);
  }
 void displayArray()

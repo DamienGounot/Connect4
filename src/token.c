@@ -9,6 +9,7 @@ extern int line; // coordonée du dernier jeton posé
 extern int HIGH; // Hauteur du plateau de jeu
 extern int WIDTH; // Largeur du plateau de jeu
 extern char** Array; // Grille de jeu
+extern int tokenLeft; // nombre de cases vides restantes (pour draw)
 
 int isTokenAvailable(char token){
     for(int i=0;i<NBPLAYER;i++)
@@ -51,6 +52,20 @@ int isColumAvailable(int column)
         }
 }
 
+void gravity()
+{
+        int line = HIGH;
+    do
+    {
+        line--;
+    } while (Array[line][column] != ' ');
+
+    Array[line][column] = Players[actualPlayer];
+    printf("[DEBUG] [gravity] Token end at line :%d\n",line);
+    printf("[DEBUG] [gravity] column %d, line %d = %c\n",column,line,Players[actualPlayer]);
+}
+
+
 void placeToken()
 {
     do
@@ -59,8 +74,12 @@ void placeToken()
         scanf("%d",&column);
     } while ((column<0 || column > WIDTH) || (!isColumAvailable(column))); // tant que la colonne n'existe pas, ou est pleine
 
-    line = gravity(Array,column,actualPlayer);
-    printf("[DEBUG] [placeToken] Player #%d : Choosed Column %d! \n",actualPlayer+1,column);
-    
+    printf("[DEBUG] [placeToken] Player #%d : Choosed Column %d! \n",actualPlayer+1,column);   
+}
+
+void leftToken()
+{
+    tokenLeft --;
+    printf("[DEBUG] [leftToken] tokenLeft : %d\n",tokenLeft); 
 }
         
