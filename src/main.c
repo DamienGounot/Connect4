@@ -38,7 +38,6 @@ int main(int argc, char** argv){
     displayArray();
     allocatePlayers();
     choiceToken();
-
     do
     {
         nextPlayer();
@@ -47,7 +46,8 @@ int main(int argc, char** argv){
         leftToken();
         displayArray();
         Count_Left();
-    } while (!win || !quit);
+        Count_Right();
+    } while (!win || !quit || (tokenLeft != 0));
     
     free(Array); // Libère mémoire de la grille
     return EXIT_SUCCESS;
