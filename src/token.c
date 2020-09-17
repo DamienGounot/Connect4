@@ -15,11 +15,11 @@ int isTokenAvailable(char token){
     for(int i=0;i<NBPLAYER;i++)
     {
         if(Players[i] == token){
-            printf("[DEBUG] [isTokenAvailable] Token is not OK ! \n");
+        //    printf("[DEBUG] [isTokenAvailable] Token is not OK ! \n");
             return 0; // token is not available
         }
     }
-    printf("[DEBUG] [isTokenAvailable] Token is OK ! \n");
+   // printf("[DEBUG] [isTokenAvailable] Token is OK ! \n");
     return 1; //token is available
 }
 
@@ -54,14 +54,14 @@ int isColumAvailable(int column)
 
 void gravity()
 {
-        int line = HIGH;
+      line = HIGH;
     do
     {
         line--;
     } while (Array[line][column] != ' ');
 
     Array[line][column] = Players[actualPlayer];
-    printf("[DEBUG] [gravity] Token end at line :%d\n",line);
+ //   printf("[DEBUG] [gravity] Token end at line :%d\n",line);
     printf("[DEBUG] [gravity] column %d, line %d = %c\n",column,line,Players[actualPlayer]);
 }
 
@@ -74,12 +74,12 @@ void placeToken()
         scanf("%d",&column);
     } while ((column<0 || column > WIDTH) || (!isColumAvailable(column))); // tant que la colonne n'existe pas, ou est pleine
 
-    printf("[DEBUG] [placeToken] Player #%d : Choosed Column %d! \n",actualPlayer+1,column);   
+ //   printf("[DEBUG] [placeToken] Player #%d : Choosed Column %d! \n",actualPlayer+1,column);   
 }
 
 void leftToken()
 {
     tokenLeft --;
-    printf("[DEBUG] [leftToken] tokenLeft : %d\n",tokenLeft); 
+  //  printf("[DEBUG] [leftToken] tokenLeft : %d\n",tokenLeft); 
 }
         
