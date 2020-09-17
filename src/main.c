@@ -5,6 +5,7 @@
 #include "../header/log.h"
 #include "../header/token.h"
 #include "../header/player.h"
+#include "../header/count.h"
 
 int HIGH; // Hauteur du plateau de jeu
 int WIDTH; // Largeur du plateau de jeu
@@ -23,6 +24,8 @@ int quit = 0; // flag de ragequit
 int win = 0; // flag de victoire
 int NBARGUMENTS;
 char** ARGUMENTS;
+int count_right; // nombre de jetons similaires a droite
+int count_left; // nombre de jetons similaires a gauche
 
 int main(int argc, char** argv){
     NBARGUMENTS = argc;
@@ -42,6 +45,8 @@ int main(int argc, char** argv){
         placeToken();
         gravity();
         leftToken();
+        displayArray();
+        Count_Left();
     } while (!win || !quit);
     
     free(Array); // Libère mémoire de la grille

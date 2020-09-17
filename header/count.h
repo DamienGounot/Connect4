@@ -2,7 +2,7 @@
 #define _COUNT_H_
 
 
-int Count_Left();
+void Count_Left();
 int Count_Right();
 
 
