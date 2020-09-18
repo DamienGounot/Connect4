@@ -64,3 +64,21 @@ void count_Below()
     }
     printf("[DEBUG] [count_below] Return value :  %d\n",count_below);
 }
+
+void count_Below_Right()
+{
+    count_below_right = 0;
+    int i = line;
+    int j = column;
+
+        while (i<HIGH-1 && j<WIDTH-1)
+        {
+            if (Array[i+1][j+1] == Players[actualPlayer])
+            {
+                count_below_right++;
+                i++;
+                j++;
+            }
+        }
+        printf("[DEBUG] [count_below_right] Return value :  %d\n",count_below_right);
+}
