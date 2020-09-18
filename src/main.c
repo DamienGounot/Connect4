@@ -6,6 +6,7 @@
 #include "../header/token.h"
 #include "../header/player.h"
 #include "../header/count.h"
+#include "../header/search.h"
 
 int HIGH; // Hauteur du plateau de jeu
 int WIDTH; // Largeur du plateau de jeu
@@ -51,15 +52,9 @@ int main(int argc, char** argv){
         gravity();
         leftToken();
         displayArray();
-        count_Left();
-        count_Right();
-        count_Below();
-        count_Below_Right();
-        count_Below_Left();
-        count_Above_Right();
-        count_Above_Left();
+        check_P4();
 
-    } while (!win || !quit || (tokenLeft != 0));
+    } while (!win && !quit && (tokenLeft != 0));
     
     free(Array); // Libère mémoire de la grille
     return EXIT_SUCCESS;

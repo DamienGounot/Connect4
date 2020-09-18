@@ -1,14 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../header/count.h"
 
-int count_right; // nombre de jetons similaires a droite
-int count_left; // nombre de jetons similaires a gauche
-int count_above; // nombre de jetons similaires au dessus
-int count_below; // nombre de jetons similaires en dessous
-int count_above_right; // nombre de jetons similaires au dessus a droite
-int count_below_right; // nombre de jetons similaires en dessous a droite
-int count_above_left; // nombre de jetons similaires au dessus a gauche
-int count_below_left; // nombre de jetons similaires en dessous a gauche
+extern int count_right; // nombre de jetons similaires a droite
+extern int count_left; // nombre de jetons similaires a gauche
+extern int count_above; // nombre de jetons similaires au dessus
+extern int count_below; // nombre de jetons similaires en dessous
+extern int count_above_right; // nombre de jetons similaires au dessus a droite
+extern int count_below_right; // nombre de jetons similaires en dessous a droite
+extern int count_above_left; // nombre de jetons similaires au dessus a gauche
+extern int count_below_left; // nombre de jetons similaires en dessous a gauche
+extern int win; // flag de victoire
+extern int actualPlayer; // référence le joueur actuel
+
 
 int Search_V()
 {
@@ -59,4 +63,13 @@ int Search_D2()
     {
         return 0;
     }    
+}
+
+void check_P4()
+{
+    if (Search_V() || Search_H() || Search_D1() || Search_D2())
+    {
+    win = 1;
+    printf("\n\n========= Player : %d WIN ! =========\n",actualPlayer+1);
+    }
 }
