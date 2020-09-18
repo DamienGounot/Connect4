@@ -7,11 +7,17 @@ extern int actualPlayer; // référence le joueur actuel
 extern char** Array; // Grille de jeu
 extern char* Players; // Tableau contenant les pions de chaque joueur
 extern int WIDTH; // Largeur du plateau de jeu
+extern int HIGH; // Hauteur du plateau de jeu
 extern int count_right; // nombre de jetons similaires a droite
 extern int count_left; // nombre de jetons similaires a gauche
+extern int count_below; // nombre de jetons similaires en dessous
+extern int count_above_right; // nombre de jetons similaires au dessus a droite
+extern int count_below_right; // nombre de jetons similaires en dessous a droite
+extern int count_above_left; // nombre de jetons similaires au dessus a gauche
+extern int count_below_left; // nombre de jetons similaires en dessous a gauche
 extern int HIGH; // Hauteur du plateau de jeu
 
-void Count_Left()
+void count_Left()
 {
     count_left = 0;
     for (int i = column; i > 0;)
@@ -23,20 +29,38 @@ void Count_Left()
         }
         break;
     }
-    printf("[DEBUG] [count_left]Return value :  %d\n",count_left);
+    printf("[DEBUG] [count_left] Return value :  %d\n",count_left);
 }
 
-void Count_Right()
+void count_Right()
 {
     count_right = 0;
-    for (int i = column; i < HIGH;)
+    for (int i = column; i < WIDTH;)
     {
         while (Array[line][i+1] == Players[actualPlayer])
         {
+
             count_right++;
             i++;
         }
         break;
     }
-    printf("[DEBUG] [count_right]Return value :  %d\n",count_right);
+    printf("[DEBUG] [count_right] Return value :  %d\n",count_right);
+}
+
+void count_Below()
+{
+    count_below = 0;
+    for (int i = line; i < HIGH-1; i++)
+    {
+        if (Array[i+1][column] == Players[actualPlayer])
+        {
+            count_below++;
+        }else
+        {
+            break;
+        }
+        
+    }
+    printf("[DEBUG] [count_below] Return value :  %d\n",count_below);
 }

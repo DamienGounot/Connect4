@@ -26,6 +26,12 @@ int NBARGUMENTS;
 char** ARGUMENTS;
 int count_right; // nombre de jetons similaires a droite
 int count_left; // nombre de jetons similaires a gauche
+int count_above; // nombre de jetons similaires au dessus
+int count_below; // nombre de jetons similaires en dessous
+int count_above_right; // nombre de jetons similaires au dessus a droite
+int count_below_right; // nombre de jetons similaires en dessous a droite
+int count_above_left; // nombre de jetons similaires au dessus a gauche
+int count_below_left; // nombre de jetons similaires en dessous a gauche
 
 int main(int argc, char** argv){
     NBARGUMENTS = argc;
@@ -45,8 +51,12 @@ int main(int argc, char** argv){
         gravity();
         leftToken();
         displayArray();
-        Count_Left();
-        Count_Right();
+
+        count_Left();
+        count_Right();
+        count_Below();
+
+
     } while (!win || !quit || (tokenLeft != 0));
     
     free(Array); // Libère mémoire de la grille
