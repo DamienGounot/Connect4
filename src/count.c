@@ -119,7 +119,6 @@ void count_Above_Right()
         {
             if (Array[i-1][j+1] == Players[actualPlayer])
             {
-                Array[i-1][j+1] == 'X';
                 count_above_right++;
                 i--;
                 j++;
@@ -130,4 +129,26 @@ void count_Above_Right()
             }
         }
         printf("[DEBUG] [count_above_right] Return value :  %d\n",count_above_right);
+}
+
+void count_Above_Left()
+{
+    count_above_left = 0;
+    int i = line;
+    int j = column;
+
+        while (i > 0 && j > 0)
+        {
+            if (Array[i-1][j-1] == Players[actualPlayer])
+            {
+                count_above_left++;
+                i--;
+                j--;
+            }
+            else
+            {
+                break;
+            }
+        }
+        printf("[DEBUG] [count_above_left] Return value :  %d\n",count_above_left);
 }

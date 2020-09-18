@@ -51,14 +51,13 @@ int main(int argc, char** argv){
         gravity();
         leftToken();
         displayArray();
-
         count_Left();
         count_Right();
         count_Below();
         count_Below_Right();
         count_Below_Left();
         count_Above_Right();
-
+        count_Above_Left();
 
     } while (!win || !quit || (tokenLeft != 0));
     
