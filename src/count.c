@@ -108,3 +108,26 @@ void count_Below_Left()
         }
         printf("[DEBUG] [count_below_left] Return value :  %d\n",count_below_left);
 }
+
+void count_Above_Right()
+{
+    count_above_right = 0;
+    int i = line;
+    int j = column;
+
+        while (i > 0 && j < WIDTH-1)
+        {
+            if (Array[i-1][j+1] == Players[actualPlayer])
+            {
+                Array[i-1][j+1] == 'X';
+                count_above_right++;
+                i--;
+                j++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        printf("[DEBUG] [count_above_right] Return value :  %d\n",count_above_right);
+}
