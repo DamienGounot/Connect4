@@ -56,6 +56,7 @@ int main(int argc, char** argv){
         count_Right();
         count_Below();
         count_Below_Right();
+        count_Below_Left();
 
 
     } while (!win || !quit || (tokenLeft != 0));
